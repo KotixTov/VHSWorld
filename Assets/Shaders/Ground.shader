@@ -23,6 +23,7 @@ Shader "Custom/Ground"
     {
         Tags { "RenderType"="Opaque" "Queue"="Geometry-4" }
         LOD 200
+        
 
         stencil
         {
@@ -32,7 +33,7 @@ Shader "Custom/Ground"
         
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows vertex:vert addshadow
+        #pragma surface surf Standard fullforwardshadows vertex:vert
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0

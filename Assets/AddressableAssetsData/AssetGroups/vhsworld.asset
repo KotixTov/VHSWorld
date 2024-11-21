@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: vhsworld
+  m_EditorClassIdentifier: 
+  m_GroupName: vhsworld
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0b2df30a2fc1eb040965bb5f988e2c84
+  m_SerializeEntries:
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Assets/Scenes/Main.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: be6f5f150c8fc784f844456c44d9072d
+    m_Address: Assets/Materials/TV
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 59ca4dc52e6d73544ba025a08c995d3e
+    m_Address: Assets/Materials/Props
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c8ef3b729c1ff0348bb6ac344b00793e
+    m_Address: Assets/Materials/Chanel3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9f3fe90a6338ad549ba996bc24a96962
+    m_Address: Assets/Materials/Chanel2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 51ebf3451a53ea34d9c278ae05b5b161
+    m_Address: Assets/Materials/Chanel1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3c7cc57d804b04f40a2ded044d25b101
+    m_Address: Assets/Materials/Sky 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f08040239926681489301001c39d722d
+    m_Address: Assets/Animation/Fan
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0d70d66767efe3345859e02d62b4a8a4
+    m_Address: Assets/Animation/Tetrahedron
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2542f867d1d3d5b40b6c222d8e305fd2
+    m_Address: Assets/Animation/LowPolyMan
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9a4d71f892c230543a04360c72be6ad9
+    m_Address: Assets/Models/coconut_palm.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4b433e3d69e741245acfa258552b4f1a
+    m_Address: Assets/Models/Tetrahedron.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cfc3658931e4a0f41bd38951996d9ef9
+    m_Address: Assets/Models/greek_column.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e621f83cef9881c43a75078ed44595ed
+    m_Address: Assets/Models/helios_vaporwave_bust.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 141a3b574d813e241a3c20aec0b852f6
+    m_Address: Assets/Models/apollo_belvedere.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7ea8b36bda5185145a39a909dc401d41
+    m_Address: Assets/Models/Fan.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3ba168d8293618d4f82ceb6c5e1c2ccb
+    m_Address: Assets/Models/GridPlane.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f5bc85d45f2ef443af88cdd1520605b
+    m_Address: Assets/Models/Midnight Climax Props.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4d6314c069d977a439fe1355a4f30969
+    m_Address: Assets/Models/old_tv_stand.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5a35f3b3f44fe4d4ba57bc40ca20f4a5
+    m_Address: Assets/Models/porsche_924_carrera_gtr.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 977a8d49b41441749a2992297293d0bf
+    m_Address: Assets/Models/LowPolyMan.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 47b0c801ef9c9d749b3be4298641dafd
+    m_Address: Assets/Scenes/Main
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 11ee1c7b07e83964f8bcec2f088e4040
+    m_Address: Assets/Scripts/Ground.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c8330e57313b2164c8202765f8238182
+    m_Address: Assets/Scripts/TV.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bcc7ba237678b83438173f69d4d73b1e
+    m_Address: Assets/Shaders/glTFIncludes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3ba03e37c43fbf24596fe165ae6161bc
+    m_Address: Assets/Shaders/CheckersFloor.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a495aff86dc954d4ca9acb1f07afd7fe
+    m_Address: Assets/Shaders/CRTScreen.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5d4da860d54683544b22b8f53104aa5f
+    m_Address: Assets/Shaders/FakeSkybox.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 36c336b86d6e5d442b618dc6101860ac
+    m_Address: Assets/Shaders/glTFPbrMetallicRoughnessMaskable.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4d15ad3e9c2eda146b68c6521e497404
+    m_Address: Assets/Shaders/GradientSkybox.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d11fe3606ddd32d44978ae50c683a5d2
+    m_Address: Assets/Shaders/Grid.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 17f9f4dd5322943429d809a09fcbf531
+    m_Address: Assets/Shaders/Ground.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 640f780e365add04bba4b3165fc62f5e
+    m_Address: Assets/Shaders/InnerSurface.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 22a1818b32a257547859c34eadfcaf62
+    m_Address: Assets/Shaders/MaskableUnlit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c93da6019f8a7b446b440a373b7b29ac
+    m_Address: Assets/Shaders/Noise.hlsl
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b54da1b287390f44bf9980262561de3
+    m_Address: Assets/Shaders/Random.hlsl
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4d397d971b55d1e45b5e41370c3da46e
+    m_Address: Assets/Shaders/RetroSun.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8ae48baf4b59c8a4ba02f014ed70dd63
+    m_Address: Assets/Shaders/StencilScreen.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 35bd3f31358da714a9ec24cb5e450b3c
+    m_Address: Assets/Textures/Paint.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1907eaf752e4f1946a64f225c6112fd7, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9a431c128750d2f45bc7e1d57504f9cc, type: 2}
+    - {fileID: 11400000, guid: da051799fed9c654ea59aeefd3d19f8c, type: 2}

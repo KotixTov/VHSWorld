@@ -4,6 +4,8 @@ Shader "Custom/MaskableUnlit"
     {
         _StencilRef("Stencil Ref", Float) = 0
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Color", Color) = (1,1,1,1)
+        [HDR] _Emission ("Emission", Color) = (0,0,0,0)
     }
     SubShader
     {
@@ -49,10 +51,13 @@ Shader "Custom/MaskableUnlit"
                 return o;
             }
 
+            fixed4 _Color;
+            fixed4 _Emission;
+            
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 col = tex2D(_MainTex, i.uv) * _Color;
+                col.rgb = lerp(col.rgb, _Emission.rgb * _Emission.a, saturate(_Emission.a));
                 return col;
             }
             ENDCG

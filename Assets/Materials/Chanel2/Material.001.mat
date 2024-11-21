@@ -15,7 +15,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -44,7 +45,7 @@ Material:
     m_Floats:
     - _CullMode: 0
     - _DstBlend: 0
-    - _Mode: 0
+    - _Mode: 2
     - _SrcBlend: 1
     - _StencilRef: 1
     - _ZWrite: 1
