@@ -46,34 +46,7 @@ Shader "Custom/Ground"
             INTERNAL_DATA
         };
 
-        float random2D(float2 value)
-        {
-            //make value smaller to avoid artefacts
-            float2 smallValue = sin(value);
-            //get scalar value from 2d vector
-            float random = dot(smallValue, float2(13.37, 42.0));
-            //make value more random by making it bigger and then taking the factional part
-            return frac(sin(random) * 230419);
-        }
-
-        float Noise2D(float2 value, float scale)
-        {
-            value *= scale;
-            float2 id = floor(value);
-            float2 localValue = frac(value);
-            
-            float x0y0 = random2D(id);
-            float x1y0 = random2D(id + float2(1, 0));
-            float x0y1 = random2D(id + float2(0, 1));
-            float x1y1 = random2D(id + float2(1, 1));
-
-            float2 smoothstep = localValue * localValue * (3 - 2 * localValue);
-
-
-            float2 ylerp = lerp(float2(x0y0, x1y0), float2(x0y1, x1y1), smoothstep.y);
-
-            return  lerp(ylerp.x, ylerp.y, smoothstep.x);
-        }
+        #include "Noise.hlsl"
 
         float _Amplitude;
         float _NoiseScale;
@@ -129,8 +102,6 @@ Shader "Custom/Ground"
             float3 y = ddy(IN.worldPos);
             float3 n =  WorldToTangentNormalVector(IN, -normalize(cross(x, y)));
             o.Normal = n;
-            
-            o.Alpha = c.a;
         }
         ENDCG
     }

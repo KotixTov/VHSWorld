@@ -12,6 +12,8 @@ Shader "Custom/CRTScreen"
         _CRTScale ("CRT Scale", float) = 100
         _CRTStrength ("CRT Lines Strength", Range(0,1)) = 0.3
         _ChromaticAberration ("Chromatic Aberration", Vector) = (0,0,0,0)
+        _NoiseStrength ("Noise Strength", Range(0,1)) = 0.1
+        _Distortion ("Distortion", Range(0,1)) = 0.1
         
         [Header(Brightness)]
         _Brightness ("Brightness", Range(0,1)) = 0.5
@@ -50,6 +52,8 @@ Shader "Custom/CRTScreen"
         float _CRTScale;
         float _CRTStrength;
         float2 _ChromaticAberration;
+        float _NoiseStrength;
+        float _Distortion;
         float _Brightness;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -59,20 +63,29 @@ Shader "Custom/CRTScreen"
             // put more per-instance properties here
         UNITY_INSTANCING_BUFFER_END(Props)
 
+        #include "Noise.hlsl"
+        
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            float CRTMask = 1 - (sin(IN.uv_MainTex.y * _CRTScale * 2 * PI) * 0.5 + 0.5) * _CRTStrength * saturate(1 - IN.screenPos.w / _MaxDistance);
+            float relativeDistance = IN.screenPos.w / _MaxDistance;
+            float CRTMask = 1 - (sin(IN.uv_MainTex.y * _CRTScale * 2 * PI) * 0.5 + 0.5) * _CRTStrength * saturate(1 - relativeDistance);
             float2 uv = IN.screenPos.xy/IN.screenPos.w;
+            float noise = Noise2D(IN.uv_MainTex.xy + random(_Time) * 1000, _CRTScale) * _NoiseStrength;
+            float2 distortion = float2(Noise2D(IN.uv_MainTex.xy + random(_Time) * 1000, _CRTScale), Noise2D(-IN.uv_MainTex.xy - random(_Time) * 1000, _CRTScale));
+            uv += distortion * _Distortion / _CRTScale * saturate(1 - relativeDistance);
             fixed4 c = fixed4(0,0,0,1);
             _ChromaticAberration /= _CRTScale;
             c.r = tex2D (_GrabTexture, uv + _ChromaticAberration / IN.screenPos.w).r;
             c.g = tex2D (_GrabTexture, uv).g;
             c.b = tex2D (_GrabTexture, uv - _ChromaticAberration / IN.screenPos.w).b;
             c *= _Color * CRTMask;
-            //c = fixed4(IN.screenPos.www,1);
-            o.Emission = c.rgb * _Brightness;
+            c += noise;
+
+            
+            
             o.Albedo = c.rgb;
+            o.Emission = c.rgb * _Brightness;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
