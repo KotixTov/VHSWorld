@@ -8,6 +8,7 @@ Shader "Custom/CRTScreen"
         _Metallic ("Metallic", Range(0,1)) = 0.0
         
         [Header(CRT)]
+        _Powered ("Powered", range(0,1)) = 1
         _MaxDistance ("Max Distance", float) = 3
         _CRTScale ("CRT Scale", float) = 100
         _CRTStrength ("CRT Lines Strength", Range(0,1)) = 0.3
@@ -49,6 +50,8 @@ Shader "Custom/CRTScreen"
         half _Metallic;
         fixed4 _Color;
         float _MaxDistance;
+
+        float _Powered;
         float _CRTScale;
         float _CRTStrength;
         float2 _ChromaticAberration;
@@ -70,20 +73,24 @@ Shader "Custom/CRTScreen"
             // Albedo comes from a texture tinted by color
             float relativeDistance = IN.screenPos.w / _MaxDistance;
             float CRTMask = 1 - (sin(IN.uv_MainTex.y * _CRTScale * 2 * PI) * 0.5 + 0.5) * _CRTStrength * saturate(1 - relativeDistance);
-            float2 uv = IN.screenPos.xy/IN.screenPos.w;
-            float noise = Noise2D(IN.uv_MainTex.xy + random(_Time) * 1000, _CRTScale) * _NoiseStrength;
-            float2 distortion = float2(Noise2D(IN.uv_MainTex.xy + random(_Time) * 1000, _CRTScale), Noise2D(-IN.uv_MainTex.xy - random(_Time) * 1000, _CRTScale));
-            uv += distortion * _Distortion / _CRTScale * saturate(1 - relativeDistance);
+            float2 screenPos = IN.screenPos.xy/IN.screenPos.w;
+            float2 uv = IN.uv_MainTex.xy;
+            float noise = Noise2D(uv + random(_Time) * 1000, _CRTScale) * _NoiseStrength;
+            float2 distortion = float2(Noise2D(uv + random(_Time) * 1000, _CRTScale), Noise2D(-uv - random(_Time) * 1000, _CRTScale));
+            screenPos += distortion * _Distortion / _CRTScale * saturate(1 - relativeDistance);
             fixed4 c = fixed4(0,0,0,1);
             _ChromaticAberration /= _CRTScale;
-            c.r = tex2D (_GrabTexture, uv + _ChromaticAberration / IN.screenPos.w).r;
-            c.g = tex2D (_GrabTexture, uv).g;
-            c.b = tex2D (_GrabTexture, uv - _ChromaticAberration / IN.screenPos.w).b;
+            c.r = tex2D (_GrabTexture, screenPos + _ChromaticAberration / IN.screenPos.w).r;
+            c.g = tex2D (_GrabTexture, screenPos).g;
+            c.b = tex2D (_GrabTexture, screenPos - _ChromaticAberration / IN.screenPos.w).b;
             c *= _Color * CRTMask;
             c += noise;
-
-            
-            
+            float poweredMaskX = max(min(_Powered * 2, 1), 0);
+            float poweredMaskY = max(min((_Powered - 0.5) * 2, 1), min(_Powered, 0.02));
+            float2 normalizedUV =  uv * 2 - 1;
+            c *= smoothstep(abs(normalizedUV.x), abs(normalizedUV.x) + 0.05, poweredMaskX);
+            c *= smoothstep(abs(normalizedUV.y), abs(normalizedUV.y) + 0.05, poweredMaskY);
+            c = saturate(c);
             o.Albedo = c.rgb;
             o.Emission = c.rgb * _Brightness;
             // Metallic and smoothness come from slider variables

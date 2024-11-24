@@ -28,7 +28,7 @@ Material:
     m_Floats:
     - _Amount: 1
     - _Amplitude: 0
-    - _EmissionStrength: 3.08
+    - _EmissionStrength: 5
     - _Glossiness: 0.087
     - _GridScale: 2
     - _GridThickness: 0.01
@@ -40,4 +40,5 @@ Material:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _Dimensions: {r: 10, g: 10, b: 0, a: 0}
     - _GridColor: {r: 0, g: 0.69803923, b: 0.41145715, a: 1}
+    - _GridSpeed: {r: 0, g: 0, b: 20, a: 0}
   m_BuildTextureStacks: []

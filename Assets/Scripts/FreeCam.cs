@@ -76,12 +76,12 @@ public class FreeCam : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.position = transform.position + (transform.up * movementSpeed * Time.deltaTime);
+            transform.position = transform.position + (-transform.up * movementSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            transform.position = transform.position + (-transform.up * movementSpeed * Time.deltaTime);
+            transform.position = transform.position + (transform.up * movementSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.PageUp))
