@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "com.atteneder.gltfast": "6.8.0",
+    "com.atteneder.ktx": "2.2.3",
     "com.unity.addressables": "1.19.19",
     "com.unity.cloud.draco": "5.1.8",
+    "com.unity.cloud.ktx": "3.4.5",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.27",
