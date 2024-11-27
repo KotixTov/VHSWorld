@@ -28,15 +28,15 @@ Material:
     m_Floats:
     - _Brightness: 1
     - _CRTScale: 150
-    - _CRTStrength: 0.8
-    - _Distortion: 0.25
+    - _CRTStrength: 0.9
+    - _Distortion: 0.3
     - _Enabled: 1
     - _Glossiness: 0.943
-    - _MaxDistance: 1
+    - _MaxDistance: 2
     - _Metallic: 0.111
-    - _NoiseStrength: 0.02
+    - _NoiseStrength: 0.03
     - _Powered: 0
     m_Colors:
-    - _ChromaticAberration: {r: 0.05, g: 0.05, b: 0, a: 0}
+    - _ChromaticAberration: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

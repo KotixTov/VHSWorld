@@ -225,7 +225,7 @@ float Voronoi3D(float3 value, float offset, float scale, out float3 cell)
     return resultDistance;
 }
 
-float Voronoi4D(float4 value, float offset, float scale, out float4 cell)
+float Voronoi4D(float4 value, float offset, float scale)
 {
     value *= scale;
     float4 id = floor(value);
@@ -254,8 +254,6 @@ float Voronoi4D(float4 value, float offset, float scale, out float4 cell)
             }
         }
     }
-
-    cell = nearestCellPoint;
     return resultDistance;
 }
 

@@ -38,14 +38,14 @@ Shader "Custom/FakeSkybox"
             struct v2f
             {
                 float4 vertex : SV_POSITION;
-                float3 worldPosition : TEXCOORD1;
+                float3 objPos : TEXCOORD1;
             };
             
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.worldPosition = mul(unity_ObjectToWorld, v.vertex).xyz;
+                o.objPos = v.vertex;
                 return o;
             }
             
@@ -56,7 +56,7 @@ Shader "Custom/FakeSkybox"
             
             fixed4 frag (v2f i) : SV_Target
             {
-                float maskHorizon = saturate((dot(normalize(i.worldPosition), float3(0, 1, 0)) * 0.5 + 0.5) * _Multiplier + _Offset);
+                float maskHorizon = saturate((dot(normalize(i.objPos), float3(0, 1, 0)) * 0.5 + 0.5) * _Multiplier + _Offset);
                 fixed4 col = lerp(_BottomColor, _TopColor, maskHorizon);
                 return col;
             }

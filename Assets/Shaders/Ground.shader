@@ -57,7 +57,7 @@ Shader "Custom/Ground"
         void vert (inout appdata_full v, out Input o) {
             UNITY_INITIALIZE_OUTPUT(Input,o);
             o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-            float noiseMask = saturate(abs(v.vertex.x / 3) - 1 + abs(o.worldPos.z / 10));
+            float noiseMask = saturate(abs(v.vertex.x / 4) - 1.5 + abs(o.worldPos.y / 10));
             v.vertex.y += Noise2D(v.vertex.xz + float2(0, _Offset), _NoiseScale) * _Amplitude * noiseMask;
             o.vertex = v.vertex;
         }

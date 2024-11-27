@@ -47,10 +47,9 @@ Shader "Custom/CheckboardFloor"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            // Albedo comes from a texture tinted by color
-            float2 c = IN.worldPos.xz * _Density;
+            float3 c = IN.worldPos.xyz * _Density;
             c = floor(c) / 2;
-            fixed checker = frac(c.x + c.y) * 2;
+            fixed checker = frac(c.x + c.y + c.z) * 2;
             fixed4 color = fixed4(checker.xxx, 1) * _Color;
             o.Albedo = color.rgb;
             // Metallic and smoothness come from slider variables
