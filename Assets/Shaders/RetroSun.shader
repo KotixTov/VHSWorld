@@ -15,7 +15,7 @@ Shader "Unlit/RetroSun"
     {
         Tags { "RenderType"="Transparent" "Queue"="Geometry-3" }
         LOD 100
-        
+
         Blend SrcAlpha OneMinusSrcAlpha
 
         stencil
