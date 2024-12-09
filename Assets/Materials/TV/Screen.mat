@@ -31,11 +31,11 @@ Material:
     - _CRTStrength: 0.9
     - _Distortion: 0.3
     - _Enabled: 1
-    - _Glossiness: 0.943
+    - _Glossiness: 0.962
     - _MaxDistance: 2
     - _Metallic: 0.111
     - _NoiseStrength: 0.03
-    - _Powered: 0
+    - _Powered: 1
     m_Colors:
     - _ChromaticAberration: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 0}
